@@ -1,4 +1,4 @@
-import { ThemeToggle } from "@bit-xplorer/xplorer-ui";
+import { ThemeToggle } from "xplorer-ui";
 
 const Thmeme = () => {
   return (

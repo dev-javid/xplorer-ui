@@ -22,20 +22,20 @@ import { Nav } from "../components/nav";
 import { Mail } from "../data";
 import { useMail } from "../use-mail";
 import { cn } from "@/lib/utils";
-import { Separator } from "@bit-xplorer/xplorer-ui";
-import { Input } from "@bit-xplorer/xplorer-ui";
+import { Separator } from "xplorer-ui";
+import { Input } from "xplorer-ui";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@bit-xplorer/xplorer-ui";
-import { TooltipProvider } from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
+import { TooltipProvider } from "xplorer-ui";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 
 interface MailProps {
   accounts: {

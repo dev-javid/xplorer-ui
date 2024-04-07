@@ -23,7 +23,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableToolbar } from "./data-table-toolbar";

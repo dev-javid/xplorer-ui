@@ -2,8 +2,8 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 
-import { Badge } from "@bit-xplorer/xplorer-ui";
-import { Checkbox } from "@bit-xplorer/xplorer-ui";
+import { Badge } from "xplorer-ui";
+import { Checkbox } from "xplorer-ui";
 
 import { labels, priorities, statuses } from "../data/data";
 import { Task } from "../data/schema";

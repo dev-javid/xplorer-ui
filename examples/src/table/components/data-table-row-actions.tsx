@@ -3,7 +3,7 @@
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { Row } from "@tanstack/react-table";
 
-import { Button } from "@bit-xplorer/xplorer-ui";
+import { Button } from "xplorer-ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +16,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 
 import { labels } from "../data/data";
 import { taskSchema } from "../data/schema";

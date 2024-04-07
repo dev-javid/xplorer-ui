@@ -13,25 +13,25 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { DropdownMenuContent, DropdownMenuItem } from "@bit-xplorer/xplorer-ui";
-import { Avatar, AvatarFallback, AvatarImage } from "@bit-xplorer/xplorer-ui";
-import { Button } from "@bit-xplorer/xplorer-ui";
-import { Calendar } from "@bit-xplorer/xplorer-ui";
-import { DropdownMenu, DropdownMenuTrigger } from "@bit-xplorer/xplorer-ui";
-import { Label } from "@bit-xplorer/xplorer-ui";
+import { DropdownMenuContent, DropdownMenuItem } from "xplorer-ui";
+import { Avatar, AvatarFallback, AvatarImage } from "xplorer-ui";
+import { Button } from "xplorer-ui";
+import { Calendar } from "xplorer-ui";
+import { DropdownMenu, DropdownMenuTrigger } from "xplorer-ui";
+import { Label } from "xplorer-ui";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@bit-xplorer/xplorer-ui";
-import { Separator } from "@bit-xplorer/xplorer-ui";
-import { Switch } from "@bit-xplorer/xplorer-ui";
-import { Textarea } from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
+import { Separator } from "xplorer-ui";
+import { Switch } from "xplorer-ui";
+import { Textarea } from "xplorer-ui";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 import { Mail } from "./../data";
 
 interface MailDisplayProps {

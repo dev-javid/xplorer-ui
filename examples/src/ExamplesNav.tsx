@@ -2,7 +2,7 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
-import { ScrollArea, ScrollBar } from "@bit-xplorer/xplorer-ui";
+import { ScrollArea, ScrollBar } from "xplorer-ui";
 import { NavLink, useLocation } from "react-router-dom";
 
 const examples = [

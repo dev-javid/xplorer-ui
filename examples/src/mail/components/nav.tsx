@@ -2,12 +2,12 @@ import { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@bit-xplorer/xplorer-ui";
+import { buttonVariants } from "xplorer-ui";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 
 interface NavProps {
   isCollapsed: boolean;

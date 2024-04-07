@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 
 interface AccountSwitcherProps {
   isCollapsed: boolean;

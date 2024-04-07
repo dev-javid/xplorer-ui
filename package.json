@@ -1,8 +1,8 @@
 {
-  "name": "@bit-xplorer/xplorer-ui",
-  "repository": "https://github.com/bit-xplorer/xplorer-ui.git",
+  "name": "xplorer-ui",
+  "repository": "https://github.com/dev-javid/xplorer-ui",
   "private": false,
-  "version": "1.0.19",
+  "version": "1.0.21",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",

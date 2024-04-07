@@ -2,9 +2,9 @@ import { ComponentProps } from "react";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 import { cn } from "@/lib/utils";
-import { Badge } from "@bit-xplorer/xplorer-ui";
-import { ScrollArea } from "@bit-xplorer/xplorer-ui";
-import { Separator } from "@bit-xplorer/xplorer-ui";
+import { Badge } from "xplorer-ui";
+import { ScrollArea } from "xplorer-ui";
+import { Separator } from "xplorer-ui";
 import { Mail } from "./../data";
 import { useMail } from "./../use-mail";
 

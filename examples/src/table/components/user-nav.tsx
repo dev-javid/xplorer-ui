@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@bit-xplorer/xplorer-ui";
-import { Button } from "@bit-xplorer/xplorer-ui";
+import { Avatar, AvatarFallback, AvatarImage } from "xplorer-ui";
+import { Button } from "xplorer-ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@bit-xplorer/xplorer-ui";
+} from "xplorer-ui";
 
 export function UserNav() {
   return (
