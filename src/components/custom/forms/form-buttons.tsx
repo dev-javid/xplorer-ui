@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/index";
+import { Button, Spinner } from "@/index";
 
 export const FormButtons = ({
   onCancel,
   form,
+  hideCancel,
+  loading,
 }: {
   onCancel?: () => void;
   onCancelNavigateTo?: string;
+  hideCancel?: boolean;
+  loading?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: any;
 }) => {
@@ -28,16 +32,20 @@ export const FormButtons = ({
           <Button type="submit">Submit</Button>
           {form.formState.isDirty ? (
             <Button
+              disabled={loading}
               variant="outline"
               type="button"
               onClick={() => form.reset()}
             >
+              {loading && <Spinner className="mr-2 h-4 w-4 animate-spin" />}
               Reset
             </Button>
           ) : (
-            <Button variant="outline" type="button" onClick={onCancelClick}>
-              Cancel
-            </Button>
+            !hideCancel && (
+              <Button variant="outline" type="button" onClick={onCancelClick}>
+                Cancel
+              </Button>
+            )
           )}
         </>
       )}
