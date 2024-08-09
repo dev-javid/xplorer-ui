@@ -17,7 +17,23 @@ const ToastsExample = () => {
           });
         }}
       >
-        Default toast
+        Default
+      </Button>
+      <Button
+        className="mx-2"
+        variant="outline"
+        onClick={() => {
+          toast({
+            variant: "primary",
+            title: "Scheduled: Catch up ",
+            description: "Friday, February 10, 2023 at 5:57 PM",
+            action: (
+              <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+            ),
+          });
+        }}
+      >
+        Primary
       </Button>
       <Button
         variant="outline"
@@ -32,23 +48,7 @@ const ToastsExample = () => {
           });
         }}
       >
-        Destructive toast
-      </Button>
-      <Button
-        className="mx-2"
-        variant="outline"
-        onClick={() => {
-          toast({
-            variant: "success",
-            title: "Scheduled: Catch up ",
-            description: "Friday, February 10, 2023 at 5:57 PM",
-            action: (
-              <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-            ),
-          });
-        }}
-      >
-        Invert toast
+        Destructive
       </Button>
     </div>
   );

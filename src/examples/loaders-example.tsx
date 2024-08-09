@@ -6,6 +6,8 @@ const LoadersExample = () => {
       <Spinner />
       <Spinner className="text-primary" />
       <Spinner className="text-secondary" />
+      <Spinner className="text-destructive" />
+      <Spinner className="text-green-500" />
     </div>
   );
 };
