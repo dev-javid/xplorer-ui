@@ -47,10 +47,16 @@ export * from "@/components/ui/breadcrumb";
 export * from "@/components/ui/input-otp";
 
 //custom coponents
-export * from "@/components/custom/theme/ModeToggle";
+export * from "@/components/custom/theme/theme-toggle";
+export * from "@/components/custom/loaders/spinner";
+export * from "@/components/custom/client-side-data-table";
+export * from "@/components/custom/dialogs";
+export * from "@/components/custom/forms";
 
 // conexts
-export * from "@/contexts/ThemeProviderContext";
+export * from "@/contexts/theme-provider-context";
+export * from "@/contexts/alert-modal-context";
+export * from "@/contexts/confirmation-modal-context";
 
 // utils
 export * from "@/lib/utils";

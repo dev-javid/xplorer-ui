@@ -1,49 +1,29 @@
-import { Button, ToastAction, useToast } from ".";
+import { Card, CardContent, CardHeader } from ".";
+import ButtonsExample from "./examples/buttons-example";
+import LoadersExample from "./examples/loaders-example";
+import ToastsExample from "./examples/toasts-example";
 
 const App = () => {
-  const { toast } = useToast();
   return (
-    <div className="p-2">
-        <Button
-            className="mx-2"
-            variant="outline"
-            onClick={() => {
-                toast({
-                  title: "Scheduled: Catch up ",
-                  description: "Friday, February 10, 2023 at 5:57 PM",
-                  action: <ToastAction altText="Goto schedule to undo">Undo</ToastAction>,
-                });
-            }}
-            >
-            Default toast
-        </Button>
-        <Button
-            variant="outline"
-            onClick={() => {
-                toast({
-                  variant: 'destructive',
-                  title: "Scheduled: Catch up ",
-                  description: "Friday, February 10, 2023 at 5:57 PM",
-                  action: <ToastAction altText="Goto schedule to undo">Undo</ToastAction>,
-                });
-            }}
-            >
-            Destructive toast
-        </Button>
-        <Button
-            className="mx-2"
-            variant="outline"
-            onClick={() => {
-                toast({
-                  variant: 'success',
-                  title: "Scheduled: Catch up ",
-                  description: "Friday, February 10, 2023 at 5:57 PM",
-                  action: <ToastAction altText="Goto schedule to undo">Undo</ToastAction>,
-                });
-            }}
-            >
-            Invert toast
-        </Button>
+    <div className="p-2 space-y-2">
+      <Card>
+        <CardHeader>Toasts</CardHeader>
+        <CardContent className="space-y-2 py-3">
+          <ToastsExample />
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>Toasts</CardHeader>
+        <CardContent className="space-y-2 py-3">
+          <ButtonsExample />
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>Loaders</CardHeader>
+        <CardContent className="space-y-2 py-3">
+          <LoadersExample />
+        </CardContent>
+      </Card>
     </div>
   );
 };
