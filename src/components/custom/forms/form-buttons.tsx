@@ -29,24 +29,33 @@ export const FormButtons = ({
     <div className="flex gap-2">
       {form && (
         <>
-          <Button type="submit">Submit</Button>
-          {form.formState.isDirty ? (
-            <Button
-              disabled={loading}
-              variant="outline"
-              type="button"
-              onClick={() => form.reset()}
-            >
-              {loading && <Spinner className="mr-2 h-4 w-4 animate-spin" />}
-              Reset
-            </Button>
-          ) : (
-            !hideCancel && (
-              <Button variant="outline" type="button" onClick={onCancelClick}>
-                Cancel
-              </Button>
-            )
-          )}
+          <Button type="submit" disabled={loading}>
+            {loading && <Spinner className="mr-2 h-4 w-4 animate-spin" />}{" "}
+            Submit
+          </Button>
+          <>
+            {!hideCancel && (
+              <>
+                {form.formState.isDirty ? (
+                  <Button
+                    variant="outline"
+                    type="button"
+                    onClick={() => form.reset()}
+                  >
+                    Reset
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outline"
+                    type="button"
+                    onClick={onCancelClick}
+                  >
+                    Cancel
+                  </Button>
+                )}
+              </>
+            )}
+          </>
         </>
       )}
     </div>
