@@ -1,7 +1,7 @@
 import { HomeIcon } from "lucide-react";
-import { Button, Spinner } from "..";
+import { Button, Spinner } from "xplorer-ui";
 
-const ButtonsExample = () => {
+const Buttons = () => {
   return (
     <div className="flex gap-4">
       <Button>Default</Button>
@@ -23,4 +23,4 @@ const ButtonsExample = () => {
   );
 };
 
-export default ButtonsExample;
+export default Buttons;

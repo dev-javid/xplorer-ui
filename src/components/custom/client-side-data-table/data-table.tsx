@@ -36,6 +36,8 @@ interface DataTableProps<TData, TValue> {
   onEdit?: (data: TData) => void;
   onDelete?: (data: TData) => void;
   isDeleteDisabled?: (data: TData) => boolean;
+  paging?: boolean;
+  serialNumbers?: boolean;
   otherActions?: {
     action: string;
     onAction: (data: TData) => void;
@@ -51,6 +53,8 @@ export function ClientSideDataTable<TData, TValue>({
   onEdit,
   onDelete,
   isDeleteDisabled,
+  paging = true,
+  serialNumbers,
   otherActions,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({});
@@ -116,6 +120,7 @@ export function ClientSideDataTable<TData, TValue>({
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
+                {serialNumbers && <TableHead>S No</TableHead>}
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id} colSpan={header.colSpan}>
@@ -133,11 +138,12 @@ export function ClientSideDataTable<TData, TValue>({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map((row, i) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
+                  {serialNumbers && <TableCell>{i + 1}</TableCell>}
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
                       {flexRender(
@@ -161,7 +167,7 @@ export function ClientSideDataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <DataTablePagination table={table} />
+      {paging && <DataTablePagination table={table} />}
     </div>
   );
 }

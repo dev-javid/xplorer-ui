@@ -1,6 +1,6 @@
-import { Button, ToastAction, useToast } from "..";
+import { Button, ToastAction, useToast } from "xplorer-ui";
 
-const ToastsExample = () => {
+const Toasts = () => {
   const { toast } = useToast();
 
   return (
@@ -54,4 +54,4 @@ const ToastsExample = () => {
   );
 };
 
-export default ToastsExample;
+export default Toasts;

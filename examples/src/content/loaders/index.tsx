@@ -1,6 +1,6 @@
-import { Spinner } from "@/components/custom/loaders/spinner";
+import { Spinner } from "xplorer-ui";
 
-const LoadersExample = () => {
+const Loaders = () => {
   return (
     <div className="flex gap-4">
       <Spinner />
@@ -12,4 +12,4 @@ const LoadersExample = () => {
   );
 };
 
-export default LoadersExample;
+export default Loaders;
