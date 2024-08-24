@@ -37,6 +37,8 @@ interface DataTableProps<TData, TValue> {
   onDelete?: (data: TData) => void;
   isDeleteDisabled?: (data: TData) => boolean;
   paging?: boolean;
+  search?: boolean;
+  columnToggle?: boolean;
   serialNumbers?: boolean;
   otherActions?: {
     action: string;
@@ -54,6 +56,8 @@ export function ClientSideDataTable<TData, TValue>({
   onDelete,
   isDeleteDisabled,
   paging = true,
+  search = true,
+  columnToggle = true,
   serialNumbers,
   otherActions,
 }: DataTableProps<TData, TValue>) {
@@ -114,7 +118,13 @@ export function ClientSideDataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} data={data} facetFilters={facetFilters} />
+      <DataTableToolbar
+        table={table}
+        data={data}
+        facetFilters={facetFilters}
+        search={search}
+        columnToggle={columnToggle}
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>

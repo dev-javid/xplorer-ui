@@ -15,23 +15,29 @@ interface DataTableToolbarProps<TData> {
   table: Table<TData>;
   data: TData[];
   facetFilters: FacetFilterProps<TData>[];
+  search: boolean;
+  columnToggle: boolean;
 }
 
 export function DataTableToolbar<TData>({
   table,
   data,
   facetFilters,
+  search,
+  columnToggle,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
-        <Input
-          placeholder="Filter..."
-          onChange={(event) => table.setGlobalFilter(event.target.value)}
-          className="h-8 w-[150px] lg:w-[250px]"
-        />
+        {search && (
+          <Input
+            placeholder="Filter..."
+            onChange={(event) => table.setGlobalFilter(event.target.value)}
+            className="h-8 w-[150px] lg:w-[250px]"
+          />
+        )}
         {facetFilters.map((f) => (
           <>
             {table.getColumn(f.accessor.toString()) && (
@@ -59,7 +65,7 @@ export function DataTableToolbar<TData>({
           </Button>
         )}
       </div>
-      <DataTableViewOptions table={table} />
+      {columnToggle && <DataTableViewOptions table={table} />}
     </div>
   );
 }

@@ -5,9 +5,13 @@ import { Employee, employees } from "./data";
 const BasicDataTable = ({
   hidePaging,
   showSerialNumbers,
+  disableSearch,
+  hideColumnToggle,
 }: {
   hidePaging?: boolean;
   showSerialNumbers?: boolean;
+  disableSearch?: boolean;
+  hideColumnToggle?: boolean;
 }) => {
   return (
     <ClientSideDataTable
@@ -15,6 +19,8 @@ const BasicDataTable = ({
       data={employees}
       paging={!hidePaging}
       serialNumbers={showSerialNumbers}
+      search={!disableSearch}
+      columnToggle={!hideColumnToggle}
     />
   );
 };
