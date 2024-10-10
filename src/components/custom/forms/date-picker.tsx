@@ -7,8 +7,9 @@ import {
   FormMessage,
   Button,
   Calendar,
+  cn,
 } from "@/index";
-import { cn } from "@/lib/utils";
+
 import {
   Popover,
   PopoverTrigger,
@@ -17,22 +18,24 @@ import {
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 
-const DatePicker = ({
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  control: any;
+  name: string;
+  label: string;
+  placeHolder: string;
+  description?: string;
+  range: (date: Date) => boolean;
+}
+
+export const DatePicker = ({
   name,
   label,
   placeHolder,
   description = "",
   control,
   range,
-}: {
-  name: string;
-  label: string;
-  placeHolder: string;
-  description?: string;
-  range: (date: Date) => boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: any;
-}) => {
+}: Props) => {
   return (
     <FormField
       control={control}
@@ -76,5 +79,3 @@ const DatePicker = ({
     />
   );
 };
-
-export default DatePicker;
