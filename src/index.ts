@@ -55,8 +55,8 @@ export * from "@/components/custom/forms";
 
 // conexts
 export * from "@/contexts/theme-provider-context";
-export * from "@/contexts/alert-modal-context";
-export * from "@/contexts/confirmation-modal-context";
+export * from "@/contexts/simple-modal-context";
+export * from "@/contexts/simple-confirm-context";
 
 // utils
 export * from "@/lib/utils";

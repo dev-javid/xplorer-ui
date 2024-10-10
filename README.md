@@ -36,6 +36,9 @@ yarn add xplorer-ui
 pnpm add xplorer-ui```
 ````
 
+![Example Image](docs/images/1.png)
+![Example Image](docs/images/2.png)
+
 ## Contributing
 
 We welcome contributions to Xplorer UI!

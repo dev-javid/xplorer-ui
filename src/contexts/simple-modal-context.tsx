@@ -6,13 +6,21 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { ConfirmModal } from "@/index";
+import { SimpleModal } from "@/index";
 
-const ConfirmModalContext = createContext<
-  (title: string, body: string | ReactNode) => Promise<boolean>
->(() => Promise.resolve(true));
+const ModalContext = createContext<{
+  showModal: (title: string, body: string | ReactNode) => void;
+  hideModal: () => void;
+}>({
+  showModal: () => {},
+  hideModal: () => {},
+});
 
-export function ConfirmModalProvider({ children }: { children: ReactNode }) {
+export function SimpleModalContextProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const fn = useRef<(choice: boolean) => void>();
   const [state, setState] = useState<{
     isOpen: boolean;
@@ -20,7 +28,7 @@ export function ConfirmModalProvider({ children }: { children: ReactNode }) {
     body: string | ReactNode;
   }>({ isOpen: false, body: "", title: "" });
 
-  const confirm = useCallback(
+  const showModal = useCallback(
     (title: string, body: string | ReactNode) => {
       return new Promise<boolean>((resolve) => {
         setState({ title, body, isOpen: true });
@@ -33,21 +41,27 @@ export function ConfirmModalProvider({ children }: { children: ReactNode }) {
     [setState]
   );
 
+  const hideModal = useCallback(() => {
+    setState({ isOpen: false, title: "", body: "" });
+    fn.current!(false);
+  }, [setState]);
+
   return (
-    <ConfirmModalContext.Provider value={confirm}>
+    <ModalContext.Provider
+      value={{ showModal: showModal, hideModal: hideModal }}
+    >
       {children}
-      <ConfirmModal
+      <SimpleModal
         {...state}
         onClose={() => {
           setState({ isOpen: false, title: state.title, body: state.body });
           fn.current!(false);
         }}
-        onConfirm={() => fn.current!(true)}
       />
-    </ConfirmModalContext.Provider>
+    </ModalContext.Provider>
   );
 }
 
-export function useConfirm() {
-  return useContext(ConfirmModalContext);
+export function useSimpleModal() {
+  return useContext(ModalContext);
 }

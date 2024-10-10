@@ -6,17 +6,17 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { AlertModal } from "@/index";
+import { ConfirmModal } from "@/index";
 
-const AlertModalContext = createContext<
-  (title: string, body: string | ReactNode) => void
->(() => {});
+const SimpleConfirmContext = createContext<{
+  showConfirm: (title: string, body: string | ReactNode) => Promise<boolean>;
+  hideConfirm: () => void;
+}>({
+  showConfirm: () => new Promise(() => {}),
+  hideConfirm: () => {},
+});
 
-export function AlertModalContextProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export function SimpleConfirmProvider({ children }: { children: ReactNode }) {
   const fn = useRef<(choice: boolean) => void>();
   const [state, setState] = useState<{
     isOpen: boolean;
@@ -24,7 +24,7 @@ export function AlertModalContextProvider({
     body: string | ReactNode;
   }>({ isOpen: false, body: "", title: "" });
 
-  const confirm = useCallback(
+  const showConfirm = useCallback(
     (title: string, body: string | ReactNode) => {
       return new Promise<boolean>((resolve) => {
         setState({ title, body, isOpen: true });
@@ -37,20 +37,31 @@ export function AlertModalContextProvider({
     [setState]
   );
 
+  const hideConfirm = useCallback(() => {
+    setState({ isOpen: false, title: "", body: "" });
+    fn.current!(false);
+  }, [setState]);
+
   return (
-    <AlertModalContext.Provider value={confirm}>
+    <SimpleConfirmContext.Provider
+      value={{
+        showConfirm: showConfirm,
+        hideConfirm: hideConfirm,
+      }}
+    >
       {children}
-      <AlertModal
+      <ConfirmModal
         {...state}
         onClose={() => {
           setState({ isOpen: false, title: state.title, body: state.body });
           fn.current!(false);
         }}
+        onConfirm={() => fn.current!(true)}
       />
-    </AlertModalContext.Provider>
+    </SimpleConfirmContext.Provider>
   );
 }
 
-export function useAlert() {
-  return useContext(AlertModalContext);
+export function useSimpleConfirm() {
+  return useContext(SimpleConfirmContext);
 }

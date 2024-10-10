@@ -9,7 +9,7 @@ import {
   Button,
 } from "@/index";
 
-export function AlertModal({
+export function SimpleModal({
   isOpen,
   onClose,
   body,
@@ -26,7 +26,8 @@ export function AlertModal({
         <AlertDialogHeader className="flex-col items-start">
           <AlertDialogTitle>{title}</AlertDialogTitle>
         </AlertDialogHeader>
-        <AlertDialogDescription>{body}</AlertDialogDescription>
+        <AlertDialogDescription></AlertDialogDescription>
+        <div>{body}</div>
         <AlertDialogFooter>
           <Button variant="outline" onClick={onClose}>
             Close
