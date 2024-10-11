@@ -1,5 +1,6 @@
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -7,14 +8,19 @@ import {
   Input,
 } from "@/index";
 
-interface Props {
+export interface FormInputProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: any;
   name: string;
   label: string;
-  placeholder: string;
+  description?: string | undefined;
   disabled?: boolean;
-  type?: string;
+  className?: string | undefined;
+}
+
+interface Props extends FormInputProps {
+  placeholder: string;
+  type?: string | undefined;
 }
 
 export const TextInput = ({
@@ -22,15 +28,17 @@ export const TextInput = ({
   name,
   label,
   placeholder,
+  description = "",
   disabled,
   type,
+  className,
 }: Props) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={className}>
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <Input
@@ -41,6 +49,7 @@ export const TextInput = ({
               {...field}
             />
           </FormControl>
+          <FormDescription>{description}</FormDescription>
           <FormMessage />
         </FormItem>
       )}

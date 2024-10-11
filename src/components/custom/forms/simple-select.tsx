@@ -9,7 +9,15 @@ import {
   SelectContent,
   SelectItem,
   FormMessage,
+  FormDescription,
+  FormInputProps,
 } from "@/index";
+
+interface Props extends FormInputProps {
+  placeholder: string;
+  defaultValue?: string | undefined;
+  options: { label: string; value: string }[];
+}
 
 export function SimpleSelect({
   control,
@@ -17,16 +25,9 @@ export function SimpleSelect({
   label,
   options,
   disabled,
+  description = "",
   defaultValue,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: any;
-  name: string;
-  label: string;
-  disabled?: boolean;
-  defaultValue: string;
-  options: { label: string; value: string }[];
-}) {
+}: Props) {
   return (
     <FormField
       control={control}
@@ -36,7 +37,7 @@ export function SimpleSelect({
           <FormLabel>{label}</FormLabel>
           <Select
             onValueChange={field.onChange}
-            defaultValue={defaultValue ?? field.value}
+            defaultValue={defaultValue ?? field.value ?? ""}
             disabled={disabled}
           >
             <FormControl>
@@ -52,6 +53,7 @@ export function SimpleSelect({
               ))}
             </SelectContent>
           </Select>
+          <FormDescription>{description}</FormDescription>
           <FormMessage />
         </FormItem>
       )}

@@ -9,6 +9,7 @@ import {
   TooltipProvider,
 } from "xplorer-ui";
 import App from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <TooltipProvider>
         <SimpleModalContextProvider>
           <SimpleConfirmProvider>
-            <App />
+            <Router>
+              <App />
+            </Router>
           </SimpleConfirmProvider>
         </SimpleModalContextProvider>
       </TooltipProvider>

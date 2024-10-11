@@ -8,6 +8,7 @@ import {
   Button,
   Calendar,
   cn,
+  FormInputProps,
 } from "@/index";
 
 import {
@@ -18,13 +19,8 @@ import {
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 
-interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: any;
-  name: string;
-  label: string;
+interface Props extends FormInputProps {
   placeHolder: string;
-  description?: string;
   range: (date: Date) => boolean;
 }
 
@@ -35,13 +31,14 @@ export const DatePicker = ({
   description = "",
   control,
   range,
+  className,
 }: Props) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem className="flex flex-col">
+        <FormItem className={cn("flex flex-col", className)}>
           <FormLabel>{label}</FormLabel>
           <Popover>
             <PopoverTrigger asChild>

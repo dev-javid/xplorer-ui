@@ -4,6 +4,7 @@ import Loaders from "./content/loaders";
 import Toasts from "./content/toasts";
 import DataTables from "./content/data-tables";
 import Modals from "./content/modals";
+import EmployeeForm from "./content/forms";
 
 const App = () => {
   return (
@@ -36,6 +37,12 @@ const App = () => {
         <CardHeader>Modals</CardHeader>
         <CardContent className="space-y-2 py-3">
           <Modals />
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>Form</CardHeader>
+        <CardContent className="space-y-2 py-3">
+          <EmployeeForm />
         </CardContent>
       </Card>
     </div>

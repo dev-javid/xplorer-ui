@@ -1,20 +1,15 @@
 import {
   FormControl,
   FormField,
+  FormInputProps,
   FormItem,
   FormLabel,
   FormMessage,
   Input,
 } from "@/index";
 
-interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: any;
-  name: string;
-  label: string;
+interface Props extends FormInputProps {
   placeholder: string;
-  disabled?: boolean;
-  type?: string;
 }
 
 async function fileToBase64(file: File): Promise<string> {
@@ -46,6 +41,7 @@ export const FileUploadInput = ({
   label,
   placeholder,
   disabled,
+  className,
 }: Props) => {
   return (
     <FormField
@@ -53,7 +49,7 @@ export const FileUploadInput = ({
       name={name}
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       render={({ field: { value, onChange, ...fieldProps } }) => (
-        <FormItem>
+        <FormItem className={className}>
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <Input
