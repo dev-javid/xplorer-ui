@@ -6,11 +6,13 @@ export const FormButtons = ({
   form,
   hideCancel,
   loading,
+  disabled,
 }: {
   onCancel?: () => void;
   onCancelNavigateTo?: string;
   hideCancel?: boolean;
   loading?: boolean;
+  disabled?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: any;
 }) => {
@@ -29,7 +31,7 @@ export const FormButtons = ({
     <div className="flex gap-2">
       {form && (
         <>
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" disabled={loading || disabled}>
             {loading && <Spinner className="mr-2 h-4 w-4 animate-spin" />}{" "}
             Submit
           </Button>
