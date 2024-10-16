@@ -1,11 +1,11 @@
 import useFormMethods from "./use-form-methods";
 import {
-  DatePicker,
   Form,
   FormButtons,
   TextInput,
   SwitchInput,
   SimpleSelect,
+  DatePicker,
 } from "xplorer-ui";
 import { startOfYear, addMonths, endOfYear } from "date-fns";
 

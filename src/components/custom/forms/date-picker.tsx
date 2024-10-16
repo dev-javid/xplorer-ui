@@ -18,21 +18,28 @@ import {
 } from "@radix-ui/react-popover";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
+import { FieldValues } from "react-hook-form";
 
-interface Props extends FormInputProps {
-  placeHolder: string;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface Props<TFieldValues extends FieldValues = FieldValues, TContext = any>
+  extends FormInputProps<TFieldValues, TContext> {
+  placeholder: string;
   range: (date: Date) => boolean;
 }
 
-export const DatePicker = ({
+function DatePicker<
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any
+>({
   name,
   label,
-  placeHolder,
+  placeholder,
   description = "",
   control,
   range,
   className,
-}: Props) => {
+}: Props<TFieldValues, TContext>) {
   return (
     <FormField
       control={control}
@@ -53,7 +60,7 @@ export const DatePicker = ({
                   {field.value ? (
                     format(field.value, "PPP")
                   ) : (
-                    <span>{placeHolder}</span>
+                    <span>{placeholder}</span>
                   )}
                   <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                 </Button>
@@ -75,4 +82,6 @@ export const DatePicker = ({
       )}
     />
   );
-};
+}
+
+export { DatePicker };

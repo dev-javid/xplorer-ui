@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { Button, Spinner } from "@/index";
+import { FieldValues, UseFormReturn } from "react-hook-form";
 
-export const FormButtons = ({
+export const FormButtons = <
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any,
+  TTransformedValues extends FieldValues | undefined = undefined
+>({
   onCancel,
   form,
   hideCancel,
@@ -13,8 +19,7 @@ export const FormButtons = ({
   hideCancel?: boolean;
   loading?: boolean;
   disabled?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  form: any;
+  form: UseFormReturn<TFieldValues, TContext, TTransformedValues>;
 }) => {
   const navigate = useNavigate();
 

@@ -8,15 +8,20 @@ import {
   FormLabel,
   Switch,
 } from "@/index";
+import { FieldValues } from "react-hook-form";
 
-export const SwitchInput = ({
+export const SwitchInput = <
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any
+>({
   name,
   label,
   description = "",
   control,
   disabled,
   className,
-}: FormInputProps) => {
+}: FormInputProps<TFieldValues, TContext>) => {
   return (
     <FormField
       control={control}

@@ -7,23 +7,33 @@ import {
   FormMessage,
   Input,
 } from "@/index";
+import { Control, FieldValues, Path } from "react-hook-form";
 
-export interface FormInputProps {
+export interface FormInputProps<
+  TFieldValues extends FieldValues = FieldValues,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: any;
-  name: string;
+  TContext = any
+> {
+  control: Control<TFieldValues, TContext>;
+  name: Path<TFieldValues>;
   label: string;
   description?: string | undefined;
   disabled?: boolean;
   className?: string | undefined;
 }
 
-interface Props extends FormInputProps {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface Props<TFieldValues extends FieldValues = FieldValues, TContext = any>
+  extends FormInputProps<TFieldValues, TContext> {
   placeholder: string;
   type?: string | undefined;
 }
 
-export const TextInput = ({
+const TextInput = <
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any
+>({
   control,
   name,
   label,
@@ -32,7 +42,7 @@ export const TextInput = ({
   disabled,
   type,
   className,
-}: Props) => {
+}: Props<TFieldValues, TContext>) => {
   return (
     <FormField
       control={control}
@@ -56,3 +66,5 @@ export const TextInput = ({
     />
   );
 };
+
+export { TextInput };

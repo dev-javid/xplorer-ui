@@ -7,8 +7,11 @@ import {
   FormMessage,
   Input,
 } from "@/index";
+import { FieldValues } from "react-hook-form";
 
-interface Props extends FormInputProps {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface Props<TFieldValues extends FieldValues = FieldValues, TContext = any>
+  extends FormInputProps<TFieldValues, TContext> {
   placeholder: string;
 }
 
@@ -35,14 +38,18 @@ async function fileToBase64(file: File): Promise<string> {
   });
 }
 
-export const FileUploadInput = ({
+const FileUploadInput = <
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any
+>({
   control,
   name,
   label,
   placeholder,
   disabled,
   className,
-}: Props) => {
+}: Props<TFieldValues, TContext>) => {
   return (
     <FormField
       control={control}
@@ -72,3 +79,5 @@ export const FileUploadInput = ({
     />
   );
 };
+
+export { FileUploadInput };

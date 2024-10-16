@@ -12,14 +12,21 @@ import {
   FormDescription,
   FormInputProps,
 } from "@/index";
+import { FieldValues } from "react-hook-form";
 
-interface Props extends FormInputProps {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface Props<TFieldValues extends FieldValues = FieldValues, TContext = any>
+  extends FormInputProps<TFieldValues, TContext> {
   placeholder: string;
   defaultValue?: string | undefined;
   options: { label: string; value: string }[];
 }
 
-export function SimpleSelect({
+const SimpleSelect = <
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any
+>({
   control,
   name,
   label,
@@ -27,7 +34,7 @@ export function SimpleSelect({
   disabled,
   description = "",
   defaultValue,
-}: Props) {
+}: Props<TFieldValues, TContext>) => {
   return (
     <FormField
       control={control}
@@ -59,4 +66,6 @@ export function SimpleSelect({
       )}
     />
   );
-}
+};
+
+export { SimpleSelect };
