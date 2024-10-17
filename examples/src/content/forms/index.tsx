@@ -23,6 +23,15 @@ const EmployeeForm = () => {
           description="Enter employee name  description"
         />
         <DatePicker
+          placeholder="Date of Joining"
+          label="Date of Joining"
+          name="dateOfJoining"
+          control={form.control}
+          minDate={addMonths(new Date(), -40)}
+          maxDate={addMonths(new Date(), -20)}
+          description="Enter date of joining  description"
+        />
+        {/* <DatePicker
           placeHolder="Date of Joining"
           label="Date of Joining"
           name="dateOfJoining"
@@ -35,7 +44,7 @@ const EmployeeForm = () => {
           }}
           description="Enter date of joining  description"
           className="pt-4"
-        />
+        /> */}
 
         <SwitchInput
           control={form.control}

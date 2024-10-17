@@ -52,6 +52,7 @@ export * from "@/components/custom/loaders/spinner";
 export * from "@/components/custom/client-side-data-table";
 export * from "@/components/custom/dialogs";
 export * from "@/components/custom/forms";
+export * from "@/components/custom/containers";
 
 // conexts
 export * from "@/contexts/theme-provider-context";

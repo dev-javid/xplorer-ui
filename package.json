@@ -2,7 +2,7 @@
   "name": "xplorer-ui",
   "repository": "https://github.com/dev-javid/xplorer-ui",
   "private": false,
-  "version": "1.0.49",
+  "version": "1.0.50",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -23,6 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -72,7 +73,8 @@
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.8.9",
-    "vite-plugin-dts": "^3.7.0"
+    "vite-plugin-dts": "^3.7.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.7",

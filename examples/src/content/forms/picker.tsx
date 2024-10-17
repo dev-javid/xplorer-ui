@@ -18,7 +18,7 @@ import {
   SelectItem,
   Calendar,
   FormInputProps,
-} from "@/index";
+} from "xplorer-ui";
 import { CalendarIcon } from "lucide-react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,7 +29,7 @@ interface Props<TFieldValues extends FieldValues = FieldValues, TContext = any>
   maxDate?: Date;
 }
 
-const DatePicker = <
+const DateInput = <
   TFieldValues extends FieldValues = FieldValues,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   TContext = any
@@ -198,4 +198,4 @@ const DatePicker = <
   );
 };
 
-export { DatePicker };
+export { DateInput };
