@@ -135,7 +135,7 @@ const DatePicker = <
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
-                <div className="flex items-center justify-between space-x-2 p-2">
+                <div className="flex items-center justify-between space-x-2 px-4 pt-2 pb-0">
                   <Select
                     value={month.toString()}
                     onValueChange={handleMonthChange}
@@ -170,6 +170,7 @@ const DatePicker = <
                   </Select>
                 </div>
                 <Calendar
+                  className="mt-0"
                   mode="single"
                   selected={value}
                   onSelect={(date) => {
