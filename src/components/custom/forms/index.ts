@@ -5,3 +5,4 @@ export * from "@/components/custom/forms/form-buttons";
 export * from "@/components/custom/forms/simple-select";
 export * from "@/components/custom/forms/text-input";
 export * from "@/components/custom/forms/switch-input";
+export * from "@/components/custom/forms/time-picker";

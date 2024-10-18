@@ -20,7 +20,7 @@ import {
   Calendar,
   FormInputProps,
 } from "@/index";
-import { CalendarIcon } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Props<TFieldValues extends FieldValues = FieldValues, TContext = any>
@@ -131,7 +131,7 @@ const DatePicker = <
                   }`}
                   disabled={disabled}
                 >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  <CalendarDays className="mr-2 h-4 w-4" />
                   {formatDate(value)}
                 </Button>
               </PopoverTrigger>

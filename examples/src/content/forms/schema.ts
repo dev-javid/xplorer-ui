@@ -17,6 +17,10 @@ const FormSchema = z.object({
     }),
   }),
   active: z.boolean().optional(),
+  time: z.date({
+    invalid_type_error: "Please select time",
+    required_error: "Please select time",
+  }),
   gender: z.string().min(1, "Gender is required"),
 });
 
