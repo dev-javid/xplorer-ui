@@ -6,6 +6,7 @@ import {
   SwitchInput,
   SimpleSelect,
   DatePicker,
+  DateRangePicker,
 } from "xplorer-ui";
 import { addMonths } from "date-fns";
 
@@ -20,7 +21,7 @@ const EmployeeForm = () => {
           label="Name"
           placeholder="Employee Name"
           control={form.control}
-          description="Enter employee name  description"
+          description="Enter employee name description"
         />
         <DatePicker
           placeholder="Date of Joining"
@@ -29,14 +30,23 @@ const EmployeeForm = () => {
           control={form.control}
           minDate={addMonths(new Date(), -13)}
           maxDate={addMonths(new Date(), 13)}
-          description="Enter date of joining  description"
+          description="Enter date of joining description"
+        />
+
+        <DateRangePicker
+          placeholder="Select Date Range"
+          label="Select Date Range"
+          name="range"
+          control={form.control}
+          onClearInput={() => form.resetField("range")}
+          description="Enter date of joining description"
         />
 
         <SwitchInput
           control={form.control}
           name="active"
           label="Active"
-          description="Employee active  description"
+          description="Employee active description"
           className="mt-4"
         />
 

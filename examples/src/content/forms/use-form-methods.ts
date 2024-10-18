@@ -12,6 +12,10 @@ const useFormMethods = () => {
       dateOfJoining: "" as unknown as Date,
       active: true,
       gender: "",
+      range: {
+        from: "" as unknown as Date,
+        to: "" as unknown as Date,
+      },
     },
   });
 

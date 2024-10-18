@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FieldValues, useController } from "react-hook-form";
+import { format } from "date-fns";
 import {
   FormControl,
   FormDescription,
@@ -60,7 +61,7 @@ const DatePicker = <
   }, [field.value]);
 
   const formatDate = (date: Date | null) => {
-    return date ? date.toLocaleDateString() : placeholder;
+    return date ? format(date, "MMM do yyyy") : placeholder || "Select date";
   };
 
   const months = [
