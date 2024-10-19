@@ -5,5 +5,4 @@ export * from "@/components/custom/client-side-data-table/data-table-row-actions
 export * from "@/components/custom/client-side-data-table/data-table-toolbar";
 export * from "@/components/custom/client-side-data-table/data-table-view-options";
 export * from "@/components/custom/client-side-data-table/data-table";
-export * from "@/components/custom/client-side-data-table/action-cell";
 export * from "@/components/custom/client-side-data-table/action-column";

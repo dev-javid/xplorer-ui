@@ -1,22 +1,40 @@
+import { TooltipTrigger, TooltipContent, Tooltip } from "@/index";
 import { Pencil, Trash2 } from "lucide-react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/index";
+import { ActionColumnProps } from ".";
+
+const classNames = "text-gray-500 hover:text-foreground";
 
 const ActionCell = <T,>({
   onEditClick,
   onDeleteClick,
+  otherActions,
   value,
-}: {
-  onEditClick?: (value: T) => void;
-  onDeleteClick?: (value: T) => void;
+}: ActionColumnProps<T> & {
   value: T;
 }) => {
   return (
     <>
+      {otherActions && (
+        <>
+          {otherActions.map((action) => (
+            <Tooltip>
+              <TooltipTrigger>
+                <div className={classNames}>
+                  <div onClick={() => action.onClick(value)}>{action.icon}</div>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{action.toolTip}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
+        </>
+      )}
       {onEditClick && (
         <Tooltip>
           <TooltipTrigger>
             <Pencil
-              className="text-gray-500 hover:text-foreground"
+              className={classNames}
               size={16}
               onClick={() => onEditClick(value)}
             />
@@ -30,7 +48,7 @@ const ActionCell = <T,>({
         <Tooltip>
           <TooltipTrigger>
             <Trash2
-              className="text-gray-500 hover:text-foreground"
+              className={classNames}
               size={16}
               onClick={() => onDeleteClick(value)}
             />

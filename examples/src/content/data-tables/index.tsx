@@ -4,7 +4,7 @@ import BasicDataTable from "./basic-data-table";
 const DataTables = () => {
   return (
     <div>
-      <Tabs defaultValue="basic" className="w-[400px]">
+      <Tabs defaultValue="default" className="w-[400px]">
         <TabsList className="w-full grid-cols-2 justify-start">
           <TabsTrigger value="default">Default</TabsTrigger>
           <TabsTrigger value="noPaging">No Paging</TabsTrigger>

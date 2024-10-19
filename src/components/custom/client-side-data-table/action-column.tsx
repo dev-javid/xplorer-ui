@@ -1,27 +1,51 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { DataTableColumnHeader } from "@/index";
+import { cn, DataTableColumnHeader } from "@/index";
 import ActionCell from "./action-cell";
+import { ReactNode } from "react";
 
-export function ActionColumn<T>(
-  onEditClick?: (value: T) => void,
-  onDeleteClick?: (value: T) => void
-): ColumnDef<T> {
+const justifyIcons = {
+  left: "justify-start",
+  center: "justify-center",
+  right: "justify-end",
+};
+
+export type ActionColumnProps<T> = {
+  header?: string;
+  onEditClick?: (value: T) => void;
+  onDeleteClick?: (value: T) => void;
+  otherActions?: {
+    icon: ReactNode;
+    onClick: (value: T) => void;
+    toolTip: string;
+  }[];
+  placement?: "left" | "right" | "center";
+};
+
+export function ActionColumn<T>({
+  header,
+  onEditClick,
+  onDeleteClick,
+  otherActions,
+  placement = "left",
+}: ActionColumnProps<T>): ColumnDef<T> {
   const column: ColumnDef<T> = {
-    accessorKey: "actions",
+    accessorKey: header || "actions",
     header: ({ column }) => (
       <DataTableColumnHeader
-        className="flex justify-end"
+        className={cn("flex", justifyIcons[placement])}
         column={column}
-        title="Actions"
+        title={header || "Actions"}
       />
     ),
     enableSorting: false,
     cell: ({ row }) => (
-      <div className="flex justify-end gap-2">
+      <div className={cn("flex gap-2", justifyIcons[placement])}>
         <ActionCell
           onEditClick={onEditClick}
           onDeleteClick={onDeleteClick}
+          otherActions={otherActions}
           value={row.original}
+          placement={placement}
         />
       </div>
     ),

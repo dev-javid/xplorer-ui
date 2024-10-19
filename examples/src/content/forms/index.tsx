@@ -35,21 +35,20 @@ const EmployeeForm = () => {
         />
 
         <DateRangePicker
-          placeholder="Select Date Range"
-          label="Select Date Range"
+          placeholder="Interview Period"
+          label="Interview Period"
           name="range"
           control={form.control}
           onClearInput={() => form.resetField("range")}
-          description="Enter date of joining description"
+          description="Interview period description"
         />
 
         <TimePicker
-          placeholder="Select Date Range"
-          label="Select Date Range"
+          placeholder="Select Exam Time"
+          label="Select Exam Time"
           name="time"
           control={form.control}
-          onClearInput={() => form.resetField("range")}
-          description="Enter date of joining description"
+          description="Enter exam time"
         />
 
         <SwitchInput

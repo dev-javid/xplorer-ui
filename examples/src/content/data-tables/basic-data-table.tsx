@@ -1,6 +1,7 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { ClientSideDataTable } from "xplorer-ui";
+import { ClientSideDataTable, ActionColumn } from "xplorer-ui";
 import { Employee, employees } from "./data";
+import { Calendar, Clock10, Eye } from "lucide-react";
 
 const BasicDataTable = ({
   hidePaging,
@@ -49,11 +50,45 @@ const columns: ColumnDef<Employee>[] = [
     header: "Department",
   },
   {
+    ...ActionColumn({
+      header: "Attendance",
+      otherActions: [
+        {
+          icon: <Calendar size={16} />,
+          toolTip: "Attendance",
+          onClick: () => alert("Attendance clicked"),
+        },
+      ],
+      placement: "right",
+    }),
+  },
+  {
     accessorKey: "salary",
     header: "Salary",
   },
   {
     accessorKey: "hireDate",
     header: "Hire Date",
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center gap-2">
+          <Clock10 size={16} />
+          {row.original.hireDate.toLocaleDateString()}
+        </div>
+      );
+    },
+  },
+  {
+    ...ActionColumn({
+      onEditClick: () => alert("Edit clicked"),
+      onDeleteClick: () => alert("Delete clicked"),
+      otherActions: [
+        {
+          icon: <Eye size={16} />,
+          toolTip: "View",
+          onClick: () => alert("View clicked"),
+        },
+      ],
+    }),
   },
 ];
