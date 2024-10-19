@@ -12,7 +12,9 @@ const justifyIcons = {
 export type ActionColumnProps<T> = {
   header?: string;
   onEditClick?: (value: T) => void;
+  editIconSize?: number;
   onDeleteClick?: (value: T) => void;
+  deleteIconSize?: number;
   otherActions?: {
     icon: ReactNode;
     onClick: (value: T) => void;
@@ -23,10 +25,8 @@ export type ActionColumnProps<T> = {
 
 export function ActionColumn<T>({
   header,
-  onEditClick,
-  onDeleteClick,
-  otherActions,
   placement = "left",
+  ...rest
 }: ActionColumnProps<T>): ColumnDef<T> {
   const column: ColumnDef<T> = {
     accessorKey: header || "actions",
@@ -40,13 +40,7 @@ export function ActionColumn<T>({
     enableSorting: false,
     cell: ({ row }) => (
       <div className={cn("flex gap-2", justifyIcons[placement])}>
-        <ActionCell
-          onEditClick={onEditClick}
-          onDeleteClick={onDeleteClick}
-          otherActions={otherActions}
-          value={row.original}
-          placement={placement}
-        />
+        <ActionCell value={row.original} {...rest} />
       </div>
     ),
   };

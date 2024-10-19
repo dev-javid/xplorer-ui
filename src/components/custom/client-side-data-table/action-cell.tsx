@@ -9,6 +9,8 @@ const ActionCell = <T,>({
   onDeleteClick,
   otherActions,
   value,
+  editIconSize = 20,
+  deleteIconSize = 20,
 }: ActionColumnProps<T> & {
   value: T;
 }) => {
@@ -35,7 +37,7 @@ const ActionCell = <T,>({
           <TooltipTrigger>
             <Pencil
               className={classNames}
-              size={16}
+              size={editIconSize}
               onClick={() => onEditClick(value)}
             />
           </TooltipTrigger>
@@ -49,7 +51,7 @@ const ActionCell = <T,>({
           <TooltipTrigger>
             <Trash2
               className={classNames}
-              size={16}
+              size={deleteIconSize}
               onClick={() => onDeleteClick(value)}
             />
           </TooltipTrigger>
