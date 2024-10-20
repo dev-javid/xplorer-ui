@@ -18,8 +18,8 @@ const ActionCell = <T,>({
     <>
       {otherActions && (
         <>
-          {otherActions.map((action) => (
-            <Tooltip>
+          {otherActions.map((action, index) => (
+            <Tooltip key={index}>
               <TooltipTrigger>
                 <div className={classNames}>
                   <div onClick={() => action.onClick(value)}>{action.icon}</div>
