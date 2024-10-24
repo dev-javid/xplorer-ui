@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && npm run build:styles",
-    "build:styles": "postcss ./src/index.css -o ./dist/style.css",
+    "build:styles": "postcss ./app/globals.css -o ./dist/style.css",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

@@ -9,12 +9,12 @@ export default defineConfig({
   plugins: [react(), dts()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./app"),
     },
   },
   build: {
     lib: {
-      entry: resolve(__dirname, "src", "index.ts"),
+      entry: resolve(__dirname, "app", "index.ts"),
       formats: ["es", "cjs"],
       fileName: (ext) => `index.${ext}.js`,
     },
