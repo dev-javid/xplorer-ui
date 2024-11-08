@@ -45,6 +45,7 @@ export * from "@/components/ui/tooltip";
 export * from "@/components/ui/use-toast";
 export * from "@/components/ui/breadcrumb";
 export * from "@/components/ui/input-otp";
+export * from "@/components/ui/sidebar";
 
 //custom coponents
 export * from "@/components/custom/theme/theme-toggle";

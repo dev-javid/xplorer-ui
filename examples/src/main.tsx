@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "xplorer-ui/dist/style.css";
+import "./index.css";
 import {
   SimpleModalContextProvider,
   SimpleConfirmProvider,
@@ -13,7 +14,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="bit-hrms-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="xplorer-ui-theme">
       <TooltipProvider>
         <SimpleModalContextProvider>
           <SimpleConfirmProvider>

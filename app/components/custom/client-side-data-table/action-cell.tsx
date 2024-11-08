@@ -9,8 +9,8 @@ const ActionCell = <T,>({
   onDeleteClick,
   otherActions,
   value,
-  editIconSize = 20,
-  deleteIconSize = 20,
+  editIconSize = 16,
+  deleteIconSize = 16,
 }: ActionColumnProps<T> & {
   value: T;
 }) => {
