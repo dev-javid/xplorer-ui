@@ -1,0 +1,30 @@
+name: Build React App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: hl
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Navigate to examples directory
+        run: cd examples
+
+      - name: Install dependencies
+        working-directory: examples
+        run: npm install
+
+      - name: Build React app
+        working-directory: examples
+        run: npm run build
